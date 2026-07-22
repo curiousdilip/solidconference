@@ -27,8 +27,22 @@ import {
   X,
   Play,
   Linkedin,
+  Map,
+  Target,
+  Parentheses,
+  LocateIcon,
+  Handshake,
+  Book,
+  Phone,
+  Waypoints,
 } from "lucide-react";
 import heroWorship from "@/assets/hero-worship.jpg";
+import solid1 from "@/assets/solid-1.jpg";
+import solid2 from "@/assets/solid-2.jpg";
+import solid3 from "@/assets/solid-3.jpg";
+import worship from "@/assets/worship.jpg";
+import brands from "@/assets/brands.jpg";
+import solid2023 from "@/assets/solid2023.jpg";
 import youthWorship from "@/assets/youth-worship.jpg";
 import delhiSkyline from "@/assets/delhi-skyline.jpg";
 import stageLights from "@/assets/stage-lights.jpg";
@@ -125,7 +139,7 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.4);
   const value = useCountUp(target, 2000, inView);
   return (
-    <div ref={ref} className="font-display text-5xl font-bold sm:text-6xl md:text-7xl text-primary">
+    <div ref={ref} className="font-display text-5xl font-bold sm:text-6xl md:text-5xl text-primary">
       {value.toLocaleString()}
       {suffix}
     </div>
@@ -235,22 +249,22 @@ function Hero() {
       id="top"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      <img
+      {/* <img
         src={heroWorship}
         alt="Youth worshipping together at SOLID Conference"
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        className="absolute inset-0 h-full w-full object-cover opacity-100"
         width={1920}
         height={1200}
-      />
+      /> */}
       <div className="absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[80vw] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl animate-pulse-glow" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[60vh] w-[60vh] rounded-full bg-secondary/20 blur-3xl animate-float-slow" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 pt-32 pb-20 text-center">
         <Reveal>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-medium uppercase tracking-widest">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-medium uppercase tracking-widest">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
-            SOLID Conference · Delhi NCR 2026
+            SOLID Conference 2026
           </div>
         </Reveal>
         <Reveal delay={100}>
@@ -269,7 +283,7 @@ function Hero() {
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-white sm:text-lg">
             SOLID is the flagship youth gathering of Delhi Yuva Movement, bringing young people from
             churches across Delhi NCR to encounter Christ, discover their God-given purpose, and
             become leaders who influence churches, campuses, workplaces, and communities.
@@ -295,12 +309,11 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={500}>
-          <div className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-3">
             {[
               { n: "1,000+", l: "Young Leaders" },
               { n: "200+", l: "Churches" },
-              { n: "Delhi NCR", l: "Regions" },
-              { n: "One", l: "Kingdom Vision" },
+              { n: "15+", l: "Delhi NCR Regions" },
             ].map((s) => (
               <div key={s.l} className="glass rounded-2xl p-4 sm:p-6">
                 <div className="font-display text-2xl font-bold text-primary sm:text-3xl">
@@ -379,7 +392,7 @@ function About() {
         </Reveal>
         <div className="mt-12 grid gap-12 md:grid-cols-2 md:items-start">
           <Reveal delay={200}>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="text-lg leading-relaxed text-brand-navy">
               SOLID is a growing movement that gathers young people from churches across Delhi NCR
               to encounter Christ, discover their God-given purpose, and be equipped to influence
               their churches, campuses, workplaces, and communities.
@@ -404,15 +417,15 @@ function Vision() {
   return (
     <section id="vision" className="relative overflow-hidden py-32">
       <img
-        src={delhiSkyline}
+        src={solid3}
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-20"
+        className="absolute inset-0 h-full w-full object-cover opacity-100"
         width={1920}
         height={900}
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-navy via-background/70 to-background" />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -503,14 +516,14 @@ function WhySolid() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl">
             <img
-              src={youthWorship}
+              src={worship}
               alt="Young people in worship"
               className="h-[500px] w-full object-cover"
               width={1200}
               height={1400}
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-brand-navy-light" />
           </div>
         </Reveal>
         <Reveal delay={200}>
@@ -518,10 +531,10 @@ function WhySolid() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
               Why SOLID?
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] sm:text-5xl text-brand-navy">
               A generation facing <span className="text-primary">unprecedented</span> pressure.
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="mt-6 text-lg text-brand-navy">
               Today's young people are navigating storms their parents never imagined:
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -672,20 +685,22 @@ function Ignite2026() {
         src={stageLights}
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        className="absolute inset-0 h-full w-full object-cover opacity-90"
         width={1600}
         height={1000}
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/10 to-brand-navy" />
-      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[80vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl animate-pulse-glow" /> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-brand-navy" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[80vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl animate-pulse-glow" />
 
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.4em] text-accent">SOLID 2026</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.4em] text-primary">
+            SOLID 2026
+          </p>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="mt-6 font-display text-[clamp(2.5rem,10vw,9rem)] font-bold leading-[0.85] tracking-tighter text-gradient-ignite drop-shadow-[0_0_80px_rgba(255,106,0,0.5)]">
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,10vw,9rem)] font-bold leading-[0.85] tracking-tighter text-primary drop-shadow-[0_0_80px_rgba(255,106,0,0.5)]">
             Reel to Real
           </h2>
         </Reveal>
@@ -695,7 +710,7 @@ function Ignite2026() {
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-navy">
             And be not conformed to this world: but be ye transformed by the renewing of your mind,
             that ye may prove what is that good, and acceptable, and perfect, will of God - Romans
             12:2
@@ -719,28 +734,23 @@ function Ignite2026() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
               Vision for 2026
             </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
               <div className="glass rounded-3xl p-6">
                 <Counter target={1000} suffix="+" />
-                <div className="mt-2 text-sm uppercase tracking-wider text-muted-foreground">
+                <div className="mt-2 text-sm uppercase tracking-wider text-black">
                   Young Leaders
                 </div>
               </div>
               <div className="glass rounded-3xl p-6">
-                <Counter target={200} suffix="+" />
-                <div className="mt-2 text-sm uppercase tracking-wider text-muted-foreground">
-                  Churches
-                </div>
+                <Counter target={150} suffix="+" />
+                <div className="mt-2 text-sm uppercase tracking-wider text-black">Churches</div>
               </div>
-              <div className="glass rounded-3xl p-6 text-left">
-                <div className="font-display text-2xl font-bold text-primary">
-                  Greater Collaboration
+
+              <div className="glass rounded-3xl p-6">
+                <Counter target={15} suffix="+" />
+                <div className="mt-2 text-sm uppercase tracking-wider text-black">
+                  Delhi NCR Regions
                 </div>
-                <div className="mt-2 text-sm text-muted-foreground">Across Delhi NCR</div>
-              </div>
-              <div className="glass rounded-3xl p-6 text-left">
-                <div className="font-display text-2xl font-bold text-primary">IMPACT 3E</div>
-                <div className="mt-2 text-sm text-muted-foreground">Apprenticeship Program</div>
               </div>
             </div>
           </div>
@@ -752,14 +762,14 @@ function Ignite2026() {
 
 // ---------- Features ----------
 const features = [
-  { icon: BookOpen, t: "Christ-centered Biblical Teaching" },
-  { icon: Music, t: "Worship & Prayer" },
-  { icon: Compass, t: "Leadership Development" },
-  { icon: Palette, t: "Creative Arts & Culture" },
-  { icon: Brain, t: "Mental Health Conversations" },
-  { icon: Network, t: "Networking Across Churches" },
-  { icon: Globe2, t: "Regional Engagement" },
-  { icon: GraduationCap, t: "IMPACT 3E Apprenticeship" },
+  { icon: Handshake, t: "Kingdom Collaboration" },
+  { icon: Book, t: "Gospal Centered Leadership" },
+  { icon: Brain, t: "Addressing Real Life Challenges" },
+  { icon: Target, t: "City Focussed Mission" },
+  { icon: Phone, t: "Discover your Calling " },
+  { icon: Waypoints, t: "Leadership Journey" },
+  { icon: Network, t: "Growing in Community" },
+  { icon: GraduationCap, t: "Sent to Transform the City" },
 ];
 
 function Features() {
@@ -768,18 +778,18 @@ function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-            What Makes SOLID Different
+            What Makes us Different
           </p>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
-            Built for the <span className="text-primary">whole disciple</span>
+            More than a conference, it's a <span className="text-primary"> Movement</span>
           </h2>
         </Reveal>
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
             <Reveal key={f.t} delay={i * 60}>
-              <div className="group relative h-full overflow-hidden rounded-2xl glass p-6 transition-all duration-500 hover:-translate-y-1 hover:glow">
+              <div className="group relative h-full overflow-hidden rounded-2xl glass p-6 transition-all duration-500 hover:-translate-y-1 hover:glow cursor-pointer">
                 <f.icon className="h-8 w-8 text-primary transition-transform duration-500 group-hover:scale-110" />
                 <div className="mt-6 font-display text-lg font-semibold leading-tight">{f.t}</div>
               </div>
@@ -942,7 +952,7 @@ function CTA() {
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+              <p className="mx-auto mt-6 max-w-xl text-lg text-black">
                 Be part of a generation setting Delhi NCR on fire for the Gospel. Register, partner,
                 volunteer, or reach out — there's a place for you.
               </p>
@@ -950,7 +960,8 @@ function CTA() {
             <Reveal delay={300}>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                 <a
-                  href="#"
+                  href="https://forms.gle/449LzVaAQdZWtibY7"
+                  target="_blank"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-background transition-transform hover:scale-105 glow"
                 >
                   Register <ArrowRight className="h-4 w-4" />
@@ -968,7 +979,8 @@ function CTA() {
                   Volunteer
                 </a>
                 <a
-                  href="#contact"
+                  href="https://wa.me/917992420843"
+                  target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
                   Contact Us
@@ -1063,7 +1075,7 @@ function Footer() {
               The flagship youth gathering of Delhi Yuva Movement — a collaborative initiative under
               The Delhi Movement.
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            {/* <div className="mt-6 flex items-center gap-3">
               {[Instagram, Youtube, Facebook, Mail].map((I, i) => (
                 <a
                   key={i}
@@ -1072,6 +1084,28 @@ function Footer() {
                   className="grid h-10 w-10 place-items-center rounded-full glass transition-transform hover:scale-110 hover:glow"
                 >
                   <I className="h-4 w-4" />
+                </a>
+              ))}
+            </div> */}
+            <div className="mt-6 flex items-center gap-3">
+              {[
+                {
+                  Icon: Instagram,
+                  href: "https://www.instagram.com/solid_conference",
+                  label: "Instagram",
+                },
+                { Icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+                { Icon: Mail, href: "mailto:teamsolidconference@gmail.com", label: "Email us" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="grid h-10 w-10 place-items-center rounded-full glass transition-transform hover:scale-110 hover:glow"
+                >
+                  <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
@@ -1110,38 +1144,68 @@ function Footer() {
 // ---------- Team ----------
 const team = [
   {
-    name: "Pastor Rajesh Kumar",
-    role: "Movement Director",
+    name: "Ps. Manav Das",
+    role: "DBF Greater Noida",
     bio: "Leading Delhi Yuva Movement with 20+ years of youth ministry across North India.",
     initials: "RK",
+    image: "/src/assets/manav.jpg",
   },
   {
-    name: "Priya Thomas",
-    role: "Conference Lead",
+    name: "Ps. Daniel Abraham",
+    role: "Kingdom City",
     bio: "Champions the SOLID vision and orchestrates city-wide gatherings.",
     initials: "PT",
+    image: "/src/assets/daniel.jpg",
   },
   {
-    name: "Arjun Mathew",
-    role: "IMPACT 3E Lead",
+    name: "Ashwini George",
+    role: "Director, Live Jam",
     bio: "Mentors emerging leaders through the year-long apprenticeship program.",
     initials: "AM",
+    image: "/src/assets/ashwini.jpg",
   },
   {
-    name: "Neha Singh",
-    role: "Worship & Creative Arts",
+    name: "Jaideep Herbert",
+    role: "COO at Vidyanta ",
     bio: "Curates worship experiences and creative arts culture at SOLID.",
     initials: "NS",
+    image: "/src/assets/jaideep.jpg",
   },
   {
-    name: "Daniel Verma",
-    role: "Campus Engagement",
+    name: "Ketan Christian",
+    role: "India Campus Crusade",
     bio: "Connects SOLID with universities and student communities across NCR.",
     initials: "DV",
   },
   {
-    name: "Rebecca George",
-    role: "Church Partnerships",
+    name: "Varun Tiwari",
+    role: "UESI",
+    bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
+    initials: "RG",
+  },
+
+  {
+    name: "Mukul Singh",
+    role: "IYFC Delhi",
+    bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
+    initials: "RG",
+  },
+  {
+    name: "Abhilasha Gier",
+    role: "Youthlight",
+    bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
+    initials: "RG",
+    image: "/src/assets/abhilasha.jpg",
+  },
+  {
+    name: "Allen Samuel",
+    role: "Dwaar Church",
+    bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
+    initials: "RG",
+  },
+  {
+    name: "Harshit Jolly",
+    role: "DBF Central",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
   },
@@ -1157,12 +1221,12 @@ function Team() {
           </p>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="mx-auto mt-4 max-w-4xl text-center font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
+          <h2 className="mx-auto mt-4 max-w-4xl text-brand-navy text-center font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
             People behind the <span className="text-primary">movement</span>
           </h2>
         </Reveal>
         <Reveal delay={150}>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-2xl text-center text-brand-navy">
             A collaborative team of pastors, leaders, and volunteers serving young people across
             Delhi NCR.
           </p>
@@ -1170,11 +1234,14 @@ function Team() {
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m, i) => (
             <Reveal key={m.name} delay={i * 80}>
-              <div className="group h-full overflow-hidden rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:glow">
+              <div className="group h-full overflow-hidden rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:glow cursor-pointer">
                 <div className="flex items-center gap-4">
-                  <div className="grid h-16 w-16 flex-shrink-0 place-items-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground glow">
-                    {m.initials}
-                  </div>
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className="h-16 w-16 flex-shrink-0 rounded-full object-cover glow"
+                  />
+
                   <div>
                     <div className="font-display text-lg font-bold leading-tight">{m.name}</div>
                     <div className="mt-1 text-xs font-medium uppercase tracking-widest text-accent">
@@ -1183,7 +1250,7 @@ function Team() {
                   </div>
                 </div>
                 <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
-                <div className="mt-6 flex gap-2">
+                {/* <div className="mt-6 flex gap-2">
                   <a
                     href="#"
                     aria-label={`${m.name} on LinkedIn`}
@@ -1198,7 +1265,7 @@ function Team() {
                   >
                     <Instagram className="h-4 w-4" />
                   </a>
-                </div>
+                </div> */}
               </div>
             </Reveal>
           ))}
@@ -1210,24 +1277,27 @@ function Team() {
 
 // ---------- Partners / Collaborators ----------
 const partners = [
-  "The Delhi Movement",
-  "Delhi Yuva",
-  "IMPACT 3E",
-  "City Harvest",
-  "New Delhi Bible Fellowship",
-  "Grace Community",
-  "Living Hope Church",
-  "Kingdom Culture",
-  "Youth Alive NCR",
-  "Ekklesia Delhi",
-  "Solid Rock Ministries",
-  "Genesis Network",
+  "India Campus Crusade for Christ",
+  "Union of Evangelical Students of India",
+  "Youth for Christ",
+  "Live Jam",
+  "Youth Light",
 ];
 
 function Partners() {
   return (
     <section id="partners" className="relative overflow-hidden py-32">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-3xl" />
+      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-3xl" /> */}
+      <img
+        src={brands}
+        alt="Youth worshipping together at SOLID Conference"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-40"
+        width={1920}
+        height={1200}
+      />
+      {/* <div className="absolute inset-0 bg-hero" /> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-navy via-background/50 to-brand-navy" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[80vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/20 blur-3xl animate-pulse-glow" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1240,15 +1310,15 @@ function Partners() {
           </h2>
         </Reveal>
         <Reveal delay={150}>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-muted-foreground">
-            SOLID is a collaborative movement. We work alongside 200+ churches, ministries, and
+          <p className="mx-auto mt-6 max-w-2xl text-center text-black">
+            SOLID is a collaborative movement. We work alongside 150+ churches, ministries, and
             Kingdom partners across Delhi NCR.
           </p>
         </Reveal>
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-3">
           {partners.map((p, i) => (
             <Reveal key={p} delay={i * 40}>
-              <div className="group flex h-24 items-center justify-center overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
+              <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
                 <div className="flex items-center gap-3">
                   <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-110">
                     <Flame className="h-4 w-4" strokeWidth={2.5} />
@@ -1264,7 +1334,7 @@ function Partners() {
         <Reveal delay={200}>
           <div className="mt-14 text-center">
             <a
-              href="#contact"
+              href="#register"
               className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-sm font-semibold transition-colors hover:bg-white/10"
             >
               Become a Partner <ArrowRight className="h-4 w-4" />
@@ -1290,12 +1360,13 @@ function Index() {
         <Journey />
         <Ignite2026 />
         <Features />
-        <Impact />
+        {/* <Impact /> */}
         <Prayer />
         <Team />
         <Partners />
+        <FAQ />
         <CTA />
-        <Contact />
+        {/* <Contact /> */}
       </main>
       <Footer />
     </div>
