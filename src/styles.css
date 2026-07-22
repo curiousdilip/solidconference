@@ -1,0 +1,228 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* Match .dark on root HTML OR child containers */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+
+  /* Brand Colors */
+  --color-brand-red: var(--brand-red);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-light: var(--brand-navy-light);
+  --color-brand-gray: var(--brand-gray);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Keyframes Animation Map */
+  --animate-fade-up: fade-up 0.8s ease-out both;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Exact Brand Palette Converted to OKLCH */
+  --brand-red: oklch(0.53 0.24 27.33); /* #e10014 */
+  --brand-navy: oklch(0.32 0.08 258.41); /* #1f396d */
+  --brand-navy-light: oklch(0.34 0.08 257.6); /* #243d6e */
+  --brand-gray: oklch(0.68 0.005 250); /* #999b9d */
+
+  /* UI Color Mapping */
+  --background: oklch(0.98 0.005 250); /* Clean Light Surface */
+  --foreground: oklch(0.2 0.03 260); /* High contrast dark text */
+  --surface: oklch(1 0 0); /* #ffffff */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.03 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.03 260);
+
+  /* Functional Roles */
+  --primary: var(--brand-red); /* #e10014 for key CTAs */
+  --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
+
+  --secondary: var(--brand-navy); /* #1f396d for dark sections/cards */
+  --secondary-foreground: oklch(1 0 0); /* White text on navy components */
+
+  --muted: oklch(0.94 0.005 250);
+  --muted-foreground: var(--brand-gray); /* #999b9d for subtext */
+
+  --accent: var(--brand-navy-light);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.53 0.24 27.33);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.2 0.03 260 / 12%);
+  --input: oklch(0.2 0.03 260 / 15%);
+  --ring: var(--brand-red);
+
+  /* Custom Brand Gradients & Glows */
+  /* --gradient-navy: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-light)); */
+  --gradient-ignite: linear-gradient(135deg, var(--brand-red), var(--brand-navy));
+  /* --gradient-hero:
+    radial-gradient(ellipse at top left, oklch(0.53 0.24 27.33 / 0.12), transparent 60%),
+    radial-gradient(ellipse at bottom right, oklch(0.32 0.08 258.41 / 0.15), transparent 55%),
+    oklch(0.98 0.005 250); */
+  /* Brand Navy Gradient: #1f396d to #243d6e */
+  --gradient-navy: linear-gradient(
+    135deg,
+    oklch(0.32 0.08 258.41),
+    /* #1f396d */ oklch(0.34 0.08 257.6) /* #243d6e */
+  );
+
+  /* Hero Gradient driven by your exact Navy Gradient + Red Accent Glow */
+  --gradient-hero:
+    radial-gradient(ellipse at top left, oklch(0.53 0.24 27.33 / 0.15), transparent 60%),
+    radial-gradient(ellipse at bottom right, oklch(0.34 0.08 257.6 / 0.25), transparent 55%),
+    linear-gradient(135deg, oklch(0.32 0.08 258.41), oklch(0.34 0.08 257.6));
+
+  --shadow-glow: 0 10px 40px -10px oklch(0.53 0.24 27.33 / 0.35);
+  --shadow-navy: 0 10px 40px -10px oklch(0.32 0.08 258.41 / 0.3);
+}
+
+.dark {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Brand Utilities */
+@utility bg-navy-gradient {
+  background: var(--gradient-navy);
+}
+
+@utility bg-gradient-ignite {
+  background: var(--gradient-ignite);
+}
+
+@utility text-gradient-ignite {
+  background: var(--gradient-ignite);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-hero {
+  background: var(--gradient-hero);
+}
+
+@utility glass {
+  background: oklch(1 0 0 / 75%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid oklch(0.2 0.03 260 / 8%);
+}
+
+@utility glass-navy {
+  background: oklch(0.32 0.08 258.41 / 85%);
+  backdrop-filter: blur(16px);
+  border: 1px solid oklch(1 0 0 / 12%);
+  color: oklch(1 0 0);
+}
+
+@utility glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility glow-navy {
+  box-shadow: var(--shadow-navy);
+}
+
+/* Keyframe Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
