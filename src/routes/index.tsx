@@ -44,6 +44,7 @@ import solid3 from "@/assets/solid-3.jpg";
 import worship from "@/assets/worship.jpg";
 import brands from "@/assets/brands.jpg";
 import manav from "@/assets/manav.jpg";
+import allen from "@/assets/allen.jpg";
 import daniel from "@/assets/daniel.jpg";
 import ashwini from "@/assets/ashwini.jpg";
 import jaideep from "@/assets/jaideep.jpg";
@@ -62,7 +63,6 @@ import livejam from "@/assets/livejam.webp";
 import yfc from "@/assets/yfc.png";
 import uesi from "@/assets/uesi.png";
 import icc from "@/assets/campuscrusade.webp";
-
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -221,7 +221,6 @@ function Nav() {
     ["2026", "#ignite"],
     ["Team", "#team"],
     ["Partners", "#partners"],
-  
   ];
   return (
     <header
@@ -393,11 +392,9 @@ function Hero() {
             </button>
             <div className="aspect-video w-full">
               <iframe
-                src="https://www.youtube.com/embed/_0uaqEVIAiI"
-                title="Solid Conference 2024 DBF | CBN India News"
-
+                src="https://www.youtube.com/embed/CtzIlT9CsIA"
+                title="Highllight Solid 2025"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-
                 className="h-full w-full"
               ></iframe>
             </div>
@@ -1010,13 +1007,15 @@ function CTA() {
                   Register <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="#contact"
+                  href="https://forms.gle/AoBNb7vtM7rdxVrB8"
+                  target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
                   Partner With Us
                 </a>
                 <a
-                  href="#contact"
+                  href="https://forms.gle/AoBNb7vtM7rdxVrB8"
+                  target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
                   Volunteer
@@ -1099,7 +1098,7 @@ function Contact() {
 // ---------- Footer ----------
 function Footer() {
   const cols = [
-   {
+    {
       title: "Movement",
       links: [
         { label: "About", href: "#about" },
@@ -1114,7 +1113,6 @@ function Footer() {
         { label: "Solid Conference 2024", href: "#journey" },
         { label: "Solid Conference 2025", href: "#journey" },
         { label: "Solid Conference 2026", href: "#register" },
-     
       ],
     },
     {
@@ -1149,7 +1147,11 @@ function Footer() {
                   href: "https://www.instagram.com/solid_conference",
                   label: "Instagram",
                 },
-                { Icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+                {
+                  Icon: Youtube,
+                  href: "https://www.youtube.com/@SOLIDConferences",
+                  label: "YouTube",
+                },
                 { Icon: Mail, href: "mailto:teamsolidconference@gmail.com", label: "Email us" },
               ].map(({ Icon, href, label }) => (
                 <a
@@ -1165,26 +1167,6 @@ function Footer() {
               ))}
             </div>
           </div>
-          {/* {cols.map((c) => (
-            <div key={c.title}>
-              <div className="font-display text-sm font-bold uppercase tracking-widest">
-                {c.title}
-              </div>
-              <ul className="mt-4 space-y-3">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))} */}
-           {/* Right Columns: Links Navigation */}
           {cols.map((col) => (
             <div key={col.title}>
               <h3 className="text-sm font-semibold text-foreground">{col.title}</h3>
@@ -1249,7 +1231,7 @@ const team = [
     role: "India Campus Crusade",
     bio: "Connects SOLID with universities and student communities across NCR.",
     initials: "DV",
-     image: ketan,
+    image: ketan,
   },
   {
     name: "Varun Tiwari",
@@ -1278,6 +1260,7 @@ const team = [
     role: "Dwaar Church",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
+    image: allen,
   },
   {
     name: "Harshit Jolly",
@@ -1308,7 +1291,7 @@ function Team() {
             Delhi NCR.
           </p>
         </Reveal>
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((m, i) => (
             <Reveal key={m.name} delay={i * 80}>
               <div className="group h-full overflow-hidden rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:glow cursor-pointer">
@@ -1359,26 +1342,26 @@ const partners = [
   // "Youth for Christ",
   // "Live Jam",
   // "Youth Light",
-   {
-      name: "India Campus Crusade for Christ",
-      image: youthlight, // Replace with your actual asset paths
-    },
-    {
-      name: "Union of Evangelical Students of India",
-      image: uesi,
-    },
-    {
-      name: "Youth for Christ",
-      image: yfc,
-    },
-    {
-      name: "Live Jam",
-      image: livejam,
-    },
-    {
-      name: "Youth Light",
-      image: youthlight,
-    },
+  {
+    name: "India Campus Crusade for Christ",
+    image: youthlight, // Replace with your actual asset paths
+  },
+  {
+    name: "Union of Evangelical Students of India",
+    image: uesi,
+  },
+  {
+    name: "Youth for Christ",
+    image: yfc,
+  },
+  {
+    name: "Live Jam",
+    image: livejam,
+  },
+  {
+    name: "Youth Light",
+    image: youthlight,
+  },
 ];
 
 function Partners() {
@@ -1412,29 +1395,28 @@ function Partners() {
             Kingdom partners across Delhi NCR.
           </p>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {partners.map((p, i) => (
-          <Reveal key={p.name} delay={i * 40}> 
-  <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow"> 
-    <div className="flex items-center gap-3"> 
-      <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-background text-primary-foreground transition-transform group-hover:scale-110 overflow-hidden"> 
-        <img 
-          src={p.image} 
-          alt={`${p.name} logo`} 
-          className="h-full w-full object-contain p-1" 
-          onError={(e) => { 
-            e.currentTarget.style.display = 'none'; 
-          }} 
-        /> 
-      </div> 
-      {/* Changed {p} to {p.name} */}
-      <span className="font-display text-sm font-semibold leading-tight text-foreground/90 text-left"> 
-        {p.name} 
-      </span> 
-    </div> 
-  </div> 
-</Reveal>
-
+            <Reveal key={p.name} delay={i * 40}>
+              <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-background text-primary-foreground transition-transform group-hover:scale-110 overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={`${p.name} logo`}
+                      className="h-full w-full object-contain p-1"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  </div>
+                  {/* Changed {p} to {p.name} */}
+                  <span className="font-display text-sm font-semibold leading-tight text-foreground/90 text-left">
+                    {p.name}
+                  </span>
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
         <Reveal delay={200}>
