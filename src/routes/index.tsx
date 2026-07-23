@@ -408,7 +408,7 @@ function Hero() {
 // ---------- About ----------
 function About() {
   return (
-    <section id="about" className="relative py-32">
+    <section id="about" className="relative py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -541,7 +541,7 @@ function WhySolid() {
     "Cultural Challenges",
   ];
   return (
-    <section className="py-32">
+    <section className="py-16">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl">
@@ -633,7 +633,7 @@ const journey = [
 
 function Journey() {
   return (
-    <section id="journey" className="relative py-32">
+    <section id="journey" className="relative py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -720,7 +720,7 @@ function Journey() {
 function Ignite2026() {
   const roles = ["Disciple Makers", "Servant Leaders", "City Influencers", "Kingdom Builders"];
   return (
-    <section id="ignite" className="relative overflow-hidden py-32">
+    <section id="ignite" className="relative overflow-hidden py-16">
       <img
         src={stageLights}
         alt=""
@@ -814,7 +814,7 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-32">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -882,7 +882,7 @@ function Impact() {
 // ---------- Prayer ----------
 function Prayer() {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-16">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[70vh] w-[70vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl animate-pulse-glow" />
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <Reveal>
@@ -977,7 +977,7 @@ function FAQ() {
 // ---------- CTA ----------
 function CTA() {
   return (
-    <section id="register" className="relative overflow-hidden py-32">
+    <section id="register" className="relative overflow-hidden py-16">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-gradient-ignite opacity-20 blur-3xl" />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] glass p-12 text-center sm:p-16">
@@ -1135,7 +1135,7 @@ function Footer() {
               </div>
               <span className="font-display text-xl font-bold">SOLID CONFERENCE</span>
             </div>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+            <p className="mt-4 max-w-sm text-sm text-brand-navy">
               The flagship youth gathering of Delhi Yuva Movement — a collaborative initiative under
               The Delhi Movement.
             </p>
@@ -1169,13 +1169,13 @@ function Footer() {
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-foreground">{col.title}</h3>
+              <h3 className="text font-semibold text-foreground">{col.title}</h3>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.label} className="mb-1">
                     <a
                       href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-sm text-brand-navy transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </a>
@@ -1185,7 +1185,7 @@ function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-brand-navy sm:flex-row sm:items-center">
           <div>© {new Date().getFullYear()} SOLID Conference · Delhi Yuva Movement</div>
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" /> Delhi NCR, India
@@ -1273,7 +1273,7 @@ const team = [
 
 function Team() {
   return (
-    <section id="team" className="py-32">
+    <section id="team" className="py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1366,7 +1366,7 @@ const partners = [
 
 function Partners() {
   return (
-    <section id="partners" className="relative overflow-hidden py-32">
+    <section id="partners" className="relative overflow-hidden py-16">
       {/* <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-3xl" /> */}
       <img
         src={brands}
