@@ -35,6 +35,7 @@ import {
   Book,
   Phone,
   Waypoints,
+  Pointer,
 } from "lucide-react";
 import heroWorship from "@/assets/hero-worship.jpg";
 import solid1 from "@/assets/solid-1.jpg";
@@ -42,6 +43,15 @@ import solid2 from "@/assets/solid-2.jpg";
 import solid3 from "@/assets/solid-3.jpg";
 import worship from "@/assets/worship.jpg";
 import brands from "@/assets/brands.jpg";
+import manav from "@/assets/manav.jpg";
+import daniel from "@/assets/daniel.jpg";
+import ashwini from "@/assets/ashwini.jpg";
+import jaideep from "@/assets/jaideep.jpg";
+import abhilasha from "@/assets/abhilasha.jpg";
+import mukul from "@/assets/mukul.jpg";
+import harshit from "@/assets/harshit.jpg";
+import varun from "@/assets/varun.jpg";
+
 import solid2023 from "@/assets/solid2023.jpg";
 import youthWorship from "@/assets/youth-worship.jpg";
 import delhiSkyline from "@/assets/delhi-skyline.jpg";
@@ -146,6 +156,47 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   );
 }
 
+function Countdown({ targetDate }: { targetDate: Date }) {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const diff = Math.max(0, targetDate.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  const units = [
+    { label: "Days", value: days },
+    { label: "Hours", value: hours },
+    { label: "Minutes", value: minutes },
+    { label: "Seconds", value: seconds },
+  ];
+
+  return (
+    <div className="grid grid-cols-4 gap-3 sm:gap-5">
+      {units.map((u) => (
+        <div
+          key={u.label}
+          className="glass relative overflow-hidden rounded-2xl p-3 text-center sm:rounded-3xl sm:p-5"
+        >
+          <div className="relative">
+            <div className="font-display text-3xl font-bold tabular-nums text-primary sm:text-5xl md:text-6xl">
+              {u.value.toString().padStart(2, "0")}
+            </div>
+            <div className="mt-1 text-[10px] uppercase tracking-wider text-brand-navy sm:text-xs">
+              {u.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ---------- Nav ----------
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -163,7 +214,7 @@ function Nav() {
     ["2026", "#ignite"],
     ["Team", "#team"],
     ["Partners", "#partners"],
-    ["Contact", "#contact"],
+    ["FAQs", "#faqs"],
   ];
   return (
     <header
@@ -249,13 +300,6 @@ function Hero() {
       id="top"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* <img
-        src={heroWorship}
-        alt="Youth worshipping together at SOLID Conference"
-        className="absolute inset-0 h-full w-full object-cover opacity-100"
-        width={1920}
-        height={1200}
-      /> */}
       <div className="absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[80vw] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl animate-pulse-glow" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[60vh] w-[60vh] rounded-full bg-secondary/20 blur-3xl animate-float-slow" />
@@ -309,21 +353,11 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={500}>
-          <div className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-3">
-            {[
-              { n: "1,000+", l: "Young Leaders" },
-              { n: "200+", l: "Churches" },
-              { n: "15+", l: "Delhi NCR Regions" },
-            ].map((s) => (
-              <div key={s.l} className="glass rounded-2xl p-4 sm:p-6">
-                <div className="font-display text-2xl font-bold text-primary sm:text-3xl">
-                  {s.n}
-                </div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-black sm:text-sm font-bold">
-                  {s.l}
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto mt-16 max-w-3xl">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+              Countdown to Reel to Real
+            </p>
+            <Countdown targetDate={new Date("2026-11-14T09:00:00+05:30")} />
           </div>
         </Reveal>
       </div>
@@ -351,20 +385,12 @@ function Hero() {
               <X className="h-5 w-5" />
             </button>
             <div className="aspect-video w-full">
-              {/* <iframe
-                src="https://www.youtube.com/watch?v=_0uaqEVIAiI"
-                title="SOLID Conference Trailer"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
-              /> */}
               <iframe
                 src="https://www.youtube.com/embed/_0uaqEVIAiI"
                 title="Solid Conference 2024 DBF | CBN India News"
-                frameborder="0"
+
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
+
                 className="h-full w-full"
               ></iframe>
             </div>
@@ -570,6 +596,7 @@ const journey = [
       { n: "250+", l: "Young People" },
       { n: "45+", l: "Churches" },
     ],
+    image: solid2023,
   },
   {
     year: "2024",
@@ -580,6 +607,7 @@ const journey = [
       { n: "450+", l: "Young People" },
       { n: "80+", l: "Churches" },
     ],
+    image: solid3,
   },
   {
     year: "2025",
@@ -595,6 +623,7 @@ const journey = [
       { n: "800+", l: "Young People" },
       { n: "150+", l: "Churches" },
     ],
+    image: solid1,
   },
 ];
 
@@ -643,11 +672,20 @@ function Journey() {
                   </div>
                   <div className="pl-14 md:pl-0">
                     <div className="glass rounded-3xl p-6 md:p-8">
+                      <img
+                        src={y.image}
+                        alt=""
+                        aria-hidden
+                        className="absolute inset-0 h-full w-full object-cover opacity-10 rounded-3xl"
+                        width={1920}
+                        height={900}
+                        loading="lazy"
+                      />
                       <p className="text-black">{y.desc}</p>
                       <ul className="mt-4 space-y-2">
                         {y.points.map((p) => (
                           <li key={p} className="flex items-start gap-2 text-sm">
-                            <Flame className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                            <ArrowRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                             <span>{p}</span>
                           </li>
                         ))}
@@ -655,12 +693,10 @@ function Journey() {
                       <div className="mt-6 flex gap-6 border-t border-border pt-6">
                         {y.stats.map((s) => (
                           <div key={s.l}>
-                            <div className="font-display text-3xl font-bold text-primary">
+                            <div className=" z-10 font-display text-3xl font-bold text-primary">
                               {s.n}
                             </div>
-                            <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                              {s.l}
-                            </div>
+                            <div className="text-xs uppercase tracking-wider text-black">{s.l}</div>
                           </div>
                         ))}
                       </div>
@@ -890,7 +926,7 @@ const faqs = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-32">
+    <section className="py-32" id="faqs">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1075,18 +1111,7 @@ function Footer() {
               The flagship youth gathering of Delhi Yuva Movement — a collaborative initiative under
               The Delhi Movement.
             </p>
-            {/* <div className="mt-6 flex items-center gap-3">
-              {[Instagram, Youtube, Facebook, Mail].map((I, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="Social link"
-                  className="grid h-10 w-10 place-items-center rounded-full glass transition-transform hover:scale-110 hover:glow"
-                >
-                  <I className="h-4 w-4" />
-                </a>
-              ))}
-            </div> */}
+
             <div className="mt-6 flex items-center gap-3">
               {[
                 {
@@ -1148,28 +1173,28 @@ const team = [
     role: "DBF Greater Noida",
     bio: "Leading Delhi Yuva Movement with 20+ years of youth ministry across North India.",
     initials: "RK",
-    image: "/src/assets/manav.jpg",
+    image: manav,
   },
   {
     name: "Ps. Daniel Abraham",
     role: "Kingdom City",
     bio: "Champions the SOLID vision and orchestrates city-wide gatherings.",
     initials: "PT",
-    image: "/src/assets/daniel.jpg",
+    image: daniel,
   },
   {
     name: "Ashwini George",
     role: "Director, Live Jam",
     bio: "Mentors emerging leaders through the year-long apprenticeship program.",
     initials: "AM",
-    image: "/src/assets/ashwini.jpg",
+    image: ashwini,
   },
   {
     name: "Jaideep Herbert",
     role: "COO at Vidyanta ",
     bio: "Curates worship experiences and creative arts culture at SOLID.",
     initials: "NS",
-    image: "/src/assets/jaideep.jpg",
+    image: jaideep,
   },
   {
     name: "Ketan Christian",
@@ -1182,6 +1207,7 @@ const team = [
     role: "UESI",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
+    image: varun,
   },
 
   {
@@ -1189,13 +1215,14 @@ const team = [
     role: "IYFC Delhi",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
+    image: mukul,
   },
   {
     name: "Abhilasha Gier",
     role: "Youthlight",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
-    image: "/src/assets/abhilasha.jpg",
+    image: abhilasha,
   },
   {
     name: "Allen Samuel",
@@ -1208,6 +1235,7 @@ const team = [
     role: "DBF Central",
     bio: "Builds bridges with 200+ partner churches across Delhi NCR.",
     initials: "RG",
+    image: harshit,
   },
 ];
 
@@ -1355,7 +1383,7 @@ function Index() {
         <Hero />
         <About />
         <Vision />
-        <Movement />
+        {/* <Movement /> */}
         <WhySolid />
         <Journey />
         <Ignite2026 />
