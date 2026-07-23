@@ -214,7 +214,7 @@ function Nav() {
     ["2026", "#ignite"],
     ["Team", "#team"],
     ["Partners", "#partners"],
-    ["FAQs", "#faqs"],
+  
   ];
   return (
     <header
@@ -1392,7 +1392,7 @@ function Index() {
         <Prayer />
         <Team />
         <Partners />
-        <FAQ />
+        {/* <FAQ /> */}
         <CTA />
         {/* <Contact /> */}
       </main>
