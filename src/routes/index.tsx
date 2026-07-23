@@ -47,6 +47,7 @@ import manav from "@/assets/manav.jpg";
 import daniel from "@/assets/daniel.jpg";
 import ashwini from "@/assets/ashwini.jpg";
 import jaideep from "@/assets/jaideep.jpg";
+import ketan from "@/assets/ketan.jpg";
 import abhilasha from "@/assets/abhilasha.jpg";
 import mukul from "@/assets/mukul.jpg";
 import harshit from "@/assets/harshit.jpg";
@@ -56,6 +57,12 @@ import solid2023 from "@/assets/solid2023.jpg";
 import youthWorship from "@/assets/youth-worship.jpg";
 import delhiSkyline from "@/assets/delhi-skyline.jpg";
 import stageLights from "@/assets/stage-lights.jpg";
+import youthlight from "@/assets/youthlight.png";
+import livejam from "@/assets/livejam.webp";
+import yfc from "@/assets/yfc.png";
+import uesi from "@/assets/uesi.png";
+import icc from "@/assets/campuscrusade.webp";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -1092,9 +1099,32 @@ function Contact() {
 // ---------- Footer ----------
 function Footer() {
   const cols = [
-    { title: "Movement", links: ["About", "Vision", "Journey", "Impact"] },
-    { title: "Conference", links: ["IGNITE 2026", "Register", "Partner Churches", "Volunteer"] },
-    { title: "Connect", links: ["Contact", "Prayer Requests", "IMPACT 3E", "Newsletter"] },
+   {
+      title: "Movement",
+      links: [
+        { label: "About", href: "#about" },
+        { label: "Vision", href: "#vision" },
+        { label: "Journey", href: "#journey" },
+      ],
+    },
+    {
+      title: "Conference",
+      links: [
+        { label: "Solid Conference 2023", href: "#journey" },
+        { label: "Solid Conference 2024", href: "#journey" },
+        { label: "Solid Conference 2025", href: "#journey" },
+        { label: "Solid Conference 2026", href: "#register" },
+     
+      ],
+    },
+    {
+      title: "Connect",
+      links: [
+        { label: "Contact", href: "https://wa.me/917992420843" },
+        { label: "Prayer Requests", href: "#" },
+        { label: "Newsletter", href: "#" },
+      ],
+    },
   ];
   return (
     <footer className="border-t border-border py-16">
@@ -1135,7 +1165,7 @@ function Footer() {
               ))}
             </div>
           </div>
-          {cols.map((c) => (
+          {/* {cols.map((c) => (
             <div key={c.title}>
               <div className="font-display text-sm font-bold uppercase tracking-widest">
                 {c.title}
@@ -1148,6 +1178,24 @@ function Footer() {
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))} */}
+           {/* Right Columns: Links Navigation */}
+          {cols.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-sm font-semibold text-foreground">{col.title}</h3>
+              <ul className="mt-4 space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -1201,6 +1249,7 @@ const team = [
     role: "India Campus Crusade",
     bio: "Connects SOLID with universities and student communities across NCR.",
     initials: "DV",
+     image: ketan,
   },
   {
     name: "Varun Tiwari",
@@ -1277,7 +1326,7 @@ function Team() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+                {/* <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{m.bio}</p> */}
                 {/* <div className="mt-6 flex gap-2">
                   <a
                     href="#"
@@ -1305,11 +1354,31 @@ function Team() {
 
 // ---------- Partners / Collaborators ----------
 const partners = [
-  "India Campus Crusade for Christ",
-  "Union of Evangelical Students of India",
-  "Youth for Christ",
-  "Live Jam",
-  "Youth Light",
+  // "India Campus Crusade for Christ",
+  // "Union of Evangelical Students of India",
+  // "Youth for Christ",
+  // "Live Jam",
+  // "Youth Light",
+   {
+      name: "India Campus Crusade for Christ",
+      image: youthlight, // Replace with your actual asset paths
+    },
+    {
+      name: "Union of Evangelical Students of India",
+      image: uesi,
+    },
+    {
+      name: "Youth for Christ",
+      image: yfc,
+    },
+    {
+      name: "Live Jam",
+      image: livejam,
+    },
+    {
+      name: "Youth Light",
+      image: youthlight,
+    },
 ];
 
 function Partners() {
@@ -1345,18 +1414,27 @@ function Partners() {
         </Reveal>
         <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-3">
           {partners.map((p, i) => (
-            <Reveal key={p} delay={i * 40}>
-              <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-110">
-                    <Flame className="h-4 w-4" strokeWidth={2.5} />
-                  </div>
-                  <span className="font-display text-sm font-semibold leading-tight text-foreground/90">
-                    {p}
-                  </span>
-                </div>
-              </div>
-            </Reveal>
+          <Reveal key={p.name} delay={i * 40}> 
+  <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow"> 
+    <div className="flex items-center gap-3"> 
+      <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-background text-primary-foreground transition-transform group-hover:scale-110 overflow-hidden"> 
+        <img 
+          src={p.image} 
+          alt={`${p.name} logo`} 
+          className="h-full w-full object-contain p-1" 
+          onError={(e) => { 
+            e.currentTarget.style.display = 'none'; 
+          }} 
+        /> 
+      </div> 
+      {/* Changed {p} to {p.name} */}
+      <span className="font-display text-sm font-semibold leading-tight text-foreground/90 text-left"> 
+        {p.name} 
+      </span> 
+    </div> 
+  </div> 
+</Reveal>
+
           ))}
         </div>
         <Reveal delay={200}>
