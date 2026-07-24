@@ -46,6 +46,8 @@ import brands from "@/assets/brands.jpg";
 import manav from "@/assets/manav.jpg";
 import allen from "@/assets/allen.jpg";
 import daniel from "@/assets/daniel.jpg";
+import rajiv from "@/assets/rajiv.jpg";
+import selvam from "@/assets/selvam.jpg";
 import ashwini from "@/assets/ashwini.jpg";
 import jaideep from "@/assets/jaideep.jpg";
 import ketan from "@/assets/ketan.jpg";
@@ -405,6 +407,67 @@ function Hero() {
   );
 }
 
+// ---------- Guests ----------
+const guests = [
+  {
+    name: "Thanga Selvam",
+    role: "Worship Leader",
+    image: selvam,
+  },
+  {
+    name: "Rajiv Chelladurai  ",
+    role: "Main Speaker",
+    image: rajiv,
+  },
+];
+
+function Guests() {
+  return (
+    <section id="guests" className="py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+            Featured Guests
+          </p>
+        </Reveal>
+        <Reveal delay={100}>
+          <h2 className="mt-4 max-w-3xl font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
+            Voices that will <span className="text-primary">ignite</span> us
+          </h2>
+        </Reveal>
+        <Reveal delay={150}>
+          <p className="mt-6 max-w-2xl text-brand-navy">
+            Two exceptional leaders joining us to cast vision, stir faith, and equip a generation.
+          </p>
+        </Reveal>
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {guests.map((g, i) => (
+            <Reveal key={g.name} delay={i * 150}>
+              <div className="group relative overflow-hidden rounded-3xl glass p-0 transition-all duration-500 hover:-translate-y-2 hover:glow">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src={g.image}
+                    alt={g.name}
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-background/10 to-transparent" />
+                </div>
+                <div className="p-8">
+                  <h3 className="mt-2 font-display text-3xl font-bold">{g.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{g.role}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ---------- About ----------
 function About() {
   return (
@@ -680,7 +743,8 @@ function Journey() {
                         src={y.image}
                         alt=""
                         aria-hidden
-                        className="absolute inset-0 h-full w-full object-cover opacity-10 rounded-3xl"
+                        // className="absolute inset-0 h-full w-full object-cover opacity-20 rounded-3xl"
+                        className=" inset-0 h-full w-full object-cover rounded-3xl mb-4"
                         width={1920}
                         height={900}
                         loading="lazy"
@@ -1441,12 +1505,14 @@ function Index() {
       <Nav />
       <main>
         <Hero />
+
         <About />
         <Vision />
         {/* <Movement /> */}
         <WhySolid />
         <Journey />
         <Ignite2026 />
+        <Guests />
         <Features />
         {/* <Impact /> */}
         <Prayer />
