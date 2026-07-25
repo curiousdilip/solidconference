@@ -37,6 +37,7 @@ import {
   Waypoints,
   Pointer,
 } from "lucide-react";
+import favicon from "@/assets/solid-fav.png";
 import heroWorship from "@/assets/hero-worship.jpg";
 import solid1 from "@/assets/solid-1.jpg";
 import solid2 from "@/assets/solid-2.jpg";
@@ -65,32 +66,37 @@ import livejam from "@/assets/livejam.webp";
 import yfc from "@/assets/yfc.png";
 import uesi from "@/assets/uesi.png";
 import icc from "@/assets/campuscrusade.webp";
+import favicontrans from "@/assets/transparent-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SOLID Conference 2026 — IGNITE | Delhi Yuva Movement" },
+      { title: "SOLID Conference 2026 | Delhi Yuva Movement" },
       {
         name: "description",
         content:
-          "IGNITE 2026 — the flagship youth gathering of Delhi Yuva Movement. 1,000+ young leaders, 200+ churches, one Kingdom vision for Delhi NCR.",
+          "SOLID Conference 2026, the flagship youth gathering of Delhi Yuva Movement. Igniting 1,000+ young leaders across Delhi NCR for the flourishing of the city.",
       },
-      { property: "og:title", content: "SOLID Conference 2026 — IGNITE" },
+      { property: "og:title", content: "SOLID Conference 2026 | Delhi Yuva Movement" },
       {
         property: "og:description",
         content:
-          "A movement of young leaders for the flourishing of Delhi NCR. Join 1,000+ young people at IGNITE 2026.",
+          "SOLID Conference 2026, the flagship youth gathering of Delhi Yuva Movement. Igniting 1,000+ young leaders across Delhi NCR for the flourishing of the city.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://solidconference.vercel.app" },
+      {
+        property: "og:image",
+        content: "https://solidconference.vercel.app/src/assets/solid-1.jpg",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "SOLID Conference 2026 — IGNITE" },
+      { name: "twitter:title", content: "SOLID Conference 2026 | Delhi Yuva Movement" },
       {
         name: "twitter:description",
         content: "A movement of young leaders for the flourishing of Delhi NCR.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://solidconference.vercel.app" }],
   }),
   component: Index,
 });
@@ -221,6 +227,7 @@ function Nav() {
     ["Vision", "#vision"],
     ["Journey", "#journey"],
     ["2026", "#ignite"],
+    ["Guests", "#guests"],
     ["Team", "#team"],
     ["Partners", "#partners"],
   ];
@@ -232,9 +239,15 @@ function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary glow">
-            <Flame className="h-5 w-5 text-background" strokeWidth={2.5} />
-          </div>
+          <img
+            src={scrolled ? favicon : favicontrans}
+            alt="logo"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="  transition-transform duration-700 group-hover:scale-105 object-top"
+          />
+
           <span
             className={`font-display text-lg font-bold tracking-tight ${
               scrolled ? "text-black" : "text-white"
@@ -331,7 +344,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mx-auto mt-8 max-w-3xl text-xl font-medium text-white sm:text-2xl">
-            A Movement of Young Leaders for the Flourishing of Delhi NCR
+            A Movement of Young Leaders for the Shalom of Delhi NCR
           </p>
         </Reveal>
         <Reveal delay={300}>
@@ -809,18 +822,18 @@ function Ignite2026() {
           </h2>
         </Reveal>
         <Reveal delay={200}>
-          <p className="mx-auto mt-8 max-w-3xl text-xl font-medium sm:text-2xl">
+          <p className="mx-auto mt-8 max-w-3xl text-xl font-medium sm:text-2xl text-white">
             From filters to Faith
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-navy">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-white">
             And be not conformed to this world: but be ye transformed by the renewing of your mind,
             that ye may prove what is that good, and acceptable, and perfect, will of God - Romans
             12:2
           </p>
         </Reveal>
-        <Reveal delay={400}>
+        {/* <Reveal delay={400}>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {roles.map((r) => (
               <div
@@ -832,9 +845,9 @@ function Ignite2026() {
               </div>
             ))}
           </div>
-        </Reveal>
+        </Reveal> */}
         <Reveal delay={500}>
-          <div className="mt-24">
+          <div className="mt-14">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
               Vision for 2026
             </p>
@@ -1078,7 +1091,7 @@ function CTA() {
                   Partner With Us
                 </a>
                 <a
-                  href="https://forms.gle/AoBNb7vtM7rdxVrB8"
+                  href="https://forms.gle/snW1ZzwND4gLwEX58"
                   target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
@@ -1194,9 +1207,14 @@ function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
-              <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary glow">
-                <Flame className="h-5 w-5 text-background" strokeWidth={2.5} />
-              </div>
+              <img
+                src={favicon}
+                alt="logo"
+                width={40}
+                height={40}
+                loading="lazy"
+                className="  transition-transform duration-700 group-hover:scale-105 object-top"
+              />
               <span className="font-display text-xl font-bold">SOLID CONFERENCE</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-brand-navy">
@@ -1408,7 +1426,7 @@ const partners = [
   // "Youth Light",
   {
     name: "India Campus Crusade for Christ",
-    image: youthlight, // Replace with your actual asset paths
+    image: icc,
   },
   {
     name: "Union of Evangelical Students of India",
@@ -1450,7 +1468,7 @@ function Partners() {
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mx-auto mt-4 max-w-4xl text-center font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
-            Partnering with churches & <span className="text-primary">ministries</span>
+            Collaborating with churches & <span className="text-primary">ministries</span>
           </h2>
         </Reveal>
         <Reveal delay={150}>
@@ -1513,10 +1531,11 @@ function Index() {
         <Journey />
         <Ignite2026 />
         <Guests />
+        <Team />
         <Features />
         {/* <Impact /> */}
         <Prayer />
-        <Team />
+
         <Partners />
         {/* <FAQ /> */}
         <CTA />

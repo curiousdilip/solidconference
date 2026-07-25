@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-
+import favicon from "@/assets/solid-fav.png";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOLID Conference 2026 — IGNITE | Delhi Yuva Movement" },
+      { title: "SOLID Conference 2026 | Delhi Yuva Movement" },
       {
         name: "description",
         content:
-          "SOLID Conference — the flagship youth gathering of Delhi Yuva Movement. Igniting 1,000+ young leaders across Delhi NCR for the flourishing of the city.",
+          "SOLID Conference 2026, the flagship youth gathering of Delhi Yuva Movement. Igniting 1,000+ young leaders across Delhi NCR for the flourishing of the city.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SOLID Conference" },
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: favicon, type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
