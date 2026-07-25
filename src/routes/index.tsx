@@ -87,7 +87,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://solidconference.vercel.app" },
       {
         property: "og:image",
-        content: "https://solidconference.vercel.app/src/assets/solid-1.jpg",
+        content: "https://solidconference.vercel.app/assets/solid-1-mwfwrDne.jpg",
       },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SOLID Conference 2026 | Delhi Yuva Movement" },
