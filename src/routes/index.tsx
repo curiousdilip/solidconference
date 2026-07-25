@@ -338,7 +338,7 @@ function Hero() {
               Reel to Real
             </span>
             <span className="block text-2xl font-medium tracking-widest text-muted-foreground sm:text-3xl mt-4">
-              2026
+              14th November 2026
             </span>
           </h1>
         </Reveal>
@@ -825,6 +825,9 @@ function Ignite2026() {
           <p className="mx-auto mt-8 max-w-3xl text-xl font-medium sm:text-2xl text-white">
             From filters to Faith
           </p>
+          <span className="block text-2xl font-medium tracking-widest text-white sm:text-3xl mt-4">
+            14th November 2026
+          </span>
         </Reveal>
         <Reveal delay={300}>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white">
@@ -833,19 +836,7 @@ function Ignite2026() {
             12:2
           </p>
         </Reveal>
-        {/* <Reveal delay={400}>
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {roles.map((r) => (
-              <div
-                key={r}
-                className="glass rounded-2xl p-6 transition-transform hover:-translate-y-1 hover:glow"
-              >
-                <Flame className="mx-auto h-8 w-8 text-primary" />
-                <div className="mt-3 font-display text-lg font-semibold">{r}</div>
-              </div>
-            ))}
-          </div>
-        </Reveal> */}
+
         <Reveal delay={500}>
           <div className="mt-14">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1457,7 +1448,7 @@ function Partners() {
         width={1920}
         height={1200}
       />
-      {/* <div className="absolute inset-0 bg-hero" /> */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-brand-navy via-background/50 to-brand-navy" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[80vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/20 blur-3xl animate-pulse-glow" />
       <div className="relative mx-auto max-w-7xl px-6">
