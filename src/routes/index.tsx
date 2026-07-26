@@ -368,7 +368,7 @@ function Hero() {
               className="group inline-flex items-center gap-3 rounded-full glass px-8 py-4 text-base font-semibold transition-colors  hover:bg-white/10 hover:text-white cursor-pointer"
             >
               <Play className="h-4 w-4 fill-current" strokeWidth={0} />
-              Watch Trailer
+              Highlight Video 2025
             </button>
           </div>
         </Reveal>
