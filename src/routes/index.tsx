@@ -230,6 +230,8 @@ function Nav() {
     ["Guests", "#guests"],
     ["Team", "#team"],
     ["Partners", "#partners"],
+    ["FAQs", "#faqs"],
+    ["Donate", "#register"],
   ];
   return (
     <header
@@ -344,14 +346,14 @@ function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mx-auto mt-8 max-w-3xl text-xl font-medium text-white sm:text-2xl">
-            A Movement of Young Leaders for the Shalom of Delhi NCR
+            Find Your Identity. Discover Your Purpose. Live Your Faith.
           </p>
         </Reveal>
         <Reveal delay={300}>
           <p className="mx-auto mt-6 max-w-2xl text-base text-white sm:text-lg">
-            SOLID is the flagship youth gathering of Delhi Yuva Movement, bringing young people from
-            churches across Delhi NCR to encounter Christ, discover their God-given purpose, and
-            become leaders who influence churches, campuses, workplaces, and communities.
+            In a world filled with filters, comparison, and endless scrolling, it's easy to lose
+            sight of who you truly are. SOLID Conference 2026 is an invitation to step away from the
+            noise and encounter the God who gives lasting identity, purpose, and hope.
           </p>
         </Reveal>
         <Reveal delay={400}>
@@ -424,12 +426,12 @@ function Hero() {
 const guests = [
   {
     name: "Thanga Selvam",
-    role: "Worship Leader",
+    role: "Singer-Songwriter, worship leader, pastor, and entrepreneur",
     image: selvam,
   },
   {
     name: "Rajiv Chelladurai  ",
-    role: "Main Speaker",
+    role: "Leadership Coach, Author and Speaker; Founder, Ergos Mind",
     image: rajiv,
   },
 ];
@@ -469,8 +471,8 @@ function Guests() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-background/10 to-transparent" />
                 </div>
                 <div className="p-8">
-                  <h3 className="mt-2 font-display text-3xl font-bold">{g.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{g.role}</p>
+                  <h3 className="mt-1 font-display text-3xl font-bold">{g.name}</h3>
+                  <p className="mt-1 text-muted-foreground">{g.role}</p>
                 </div>
               </div>
             </Reveal>
@@ -666,7 +668,7 @@ const journey = [
   {
     year: "2023",
     theme: "Head • Heart • Hand in Christ",
-    desc: "The first SOLID Conference laid the foundation for holistic discipleship.",
+    desc: "The first SOLID Conference laid the foundation for holistic discipleship, calling young people to know Christ deeply, experience inward transformation, and live out their faith through practical obedience.",
     points: [
       "Know Christ deeply",
       "Experience inward transformation",
@@ -681,7 +683,8 @@ const journey = [
   {
     year: "2024",
     theme: "Build His Kingdom",
-    desc: "Young leaders were invited into God's mission across every sphere of life.",
+
+    desc: "Young leaders were invited to embrace God's mission across every sphere of life; church, campus, workplace, family, and society, bringing His presence and purpose into every space they influence.",
     points: ["Church", "Campus", "Workplace", "Family", "Society"],
     stats: [
       { n: "450+", l: "Young People" },
@@ -692,8 +695,8 @@ const journey = [
   {
     year: "2025",
     theme: "Resilience",
-    verse: "Colossians 2:7",
-    desc: "Young people were encouraged to remain rooted in Christ, grounded in biblical truth, and faithful in their calling.",
+
+    desc: "Young people were encouraged to remain rooted in Christ, anchored in biblical truth, and resilient in their faith journey. Through moments of surrender and recommitment, many experienced spiritual renewal and were strengthened to live out their calling. The gathering became a reflection of citywide unity, worship, leadership, creativity, and Kingdom collaboration across Delhi NCR.",
     points: [
       "Many surrendered or recommitted their lives to Christ",
       "Citywide unity, worship, leadership, creativity",
@@ -763,14 +766,7 @@ function Journey() {
                         loading="lazy"
                       />
                       <p className="text-black">{y.desc}</p>
-                      <ul className="mt-4 space-y-2">
-                        {y.points.map((p) => (
-                          <li key={p} className="flex items-start gap-2 text-sm">
-                            <ArrowRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                            <span>{p}</span>
-                          </li>
-                        ))}
-                      </ul>
+
                       <div className="mt-6 flex gap-6 border-t border-border pt-6">
                         {y.stats.map((s) => (
                           <div key={s.l}>
@@ -978,27 +974,61 @@ function Prayer() {
 // ---------- FAQ ----------
 const faqs = [
   {
-    q: "When and where is SOLID 2026?",
-    a: "SOLID 2026 will gather young leaders across Delhi NCR. Register to receive dates, venue details, and travel information.",
+    q: "What is SOLID Conference?",
+    a: "SOLID Conference is an annual gathering that brings together young people from churches across Delhi NCR for a day of worship, biblical teaching, practical leadership, and authentic community. Our desire is to help young people discover their identity in Christ, grow in their faith, and influence their generation.",
   },
   {
-    q: "Who is SOLID for?",
-    a: "SOLID is for young adults ages 16–35, church leaders, volunteers, and partner churches across Delhi NCR who want to encounter Christ and grow as Kingdom leaders.",
+    q: "Who can attend?",
+    a: "SOLID Conference is open to young people aged 15–30 years, including students, young professionals, entrepreneurs, young leaders, and anyone who desires to grow in their relationship with Christ.",
   },
   {
-    q: "How can my church partner with SOLID?",
-    a: "We collaborate with churches across Delhi NCR. Reach out via the Partner With Us form and our team will connect with your leadership.",
+    q: "Do I need to belong to a particular church or denomination?",
+    a: "No. SOLID is open to young people from all churches and Christian backgrounds. We celebrate Kingdom unity and welcome everyone.",
+  },
+
+  {
+    q: "What can I expect at the conference?",
+    a: "You'll experience:Inspiring worship; Biblical teaching; Short TED-style talks; Interactive panel discussions; Networking with young people from across Delhi NCR; Prayer and commissioning",
+  },
+
+  {
+    q: "Is registration required?",
+    a: "Yes. Registration is mandatory as seating is limited. We encourage you to register early to secure your place.",
   },
   {
-    q: "What is the IMPACT 3E Apprenticeship Program?",
-    a: "IMPACT 3E is our year-long apprenticeship connecting emerging young leaders with mentors, ministry practice, and Kingdom-focused development.",
+    q: " Is there a registration fee?",
+    a: "Yes. The registration fee is ₹200 per participant.",
+  },
+  {
+    q: "Will lunch be provided?",
+    a: "Yes. Lunch and refreshments will be provided for all registered participants.",
+  },
+  {
+    q: "Where is the conference being held?",
+    a: "Tentative Venue: Kedarnath Sahni Auditorium, Delhi; The final venue details will be shared with all registered participants before the conference.",
+  },
+  {
+    q: "What time should I arrive?",
+    a: "Registration begins at 8:00 AM. We recommend arriving by 8:00–8:30 AM to complete registration and connect with other participants before the conference begins.",
+  },
+  {
+    q: "Can I come with my church or youth group?",
+    a: "Absolutely! We encourage churches and youth groups to attend together. It's a great opportunity to grow in faith and build stronger relationships.",
+  },
+  {
+    q: "How do I become a volunteer?",
+    a: "You can apply through the Volunteer With Us form on our website. Our team will contact selected volunteers before the conference.",
+  },
+  {
+    q: "How can my church or organization partner with SOLID?",
+    a: "We welcome churches, ministries, organizations, and businesses to partner with us. Please complete the Partner With Us form on our website, and our team will get in touch.",
   },
 ];
 
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-32" id="faqs">
+    <section className="py-16" id="faqs">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1007,7 +1037,7 @@ function FAQ() {
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 text-center font-display text-5xl font-bold sm:text-6xl">
-            Got <span className="text-gradient-ignite">questions?</span>
+            Got <span className="text-primary">questions?</span>
           </h2>
         </Reveal>
         <div className="mt-12 space-y-3">
@@ -1052,7 +1082,14 @@ function CTA() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-ignite opacity-10" />
           <div className="relative">
             <Reveal>
-              <Flame className="mx-auto h-12 w-12 text-primary animate-pulse-glow" />
+              <img
+                src={favicon}
+                alt="logo"
+                width={40}
+                height={40}
+                loading="lazy"
+                className="mx-auto h-12 w-12 text-primary animate-pulse-glow  transition-transform duration-700 group-hover:scale-105 object-top"
+              />
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-6 font-display text-5xl font-bold leading-[1.05] sm:text-7xl">
@@ -1061,8 +1098,8 @@ function CTA() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mx-auto mt-6 max-w-xl text-lg text-black">
-                Be part of a generation setting Delhi NCR on fire for the Gospel. Register, partner,
-                volunteer, or reach out — there's a place for you.
+                Be part of a generation that seeks the shalom of the city, bringing God's peace,
+                restoring brokenness, and building a flourishing future together.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -1089,11 +1126,11 @@ function CTA() {
                   Volunteer
                 </a>
                 <a
-                  href="https://wa.me/917992420843"
+                  href="https://forms.gle/x9W9i39Bd77pXmTQA"
                   target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
-                  Contact Us
+                  Donate Us
                 </a>
               </div>
             </Reveal>
@@ -1209,7 +1246,7 @@ function Footer() {
               <span className="font-display text-xl font-bold">SOLID CONFERENCE</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-brand-navy">
-              The flagship youth gathering of Delhi Yuva Movement — a collaborative initiative under
+              The flagship youth gathering of Delhi Yuva Movement, a collaborative initiative under
               The Delhi Movement.
             </p>
 
@@ -1272,29 +1309,29 @@ function Footer() {
 // ---------- Team ----------
 const team = [
   {
-    name: "Ps. Manav Das",
-    role: "DBF Greater Noida",
+    name: "Manav Das",
+    role: "Catalyst, Delhi NCR",
     bio: "Leading Delhi Yuva Movement with 20+ years of youth ministry across North India.",
     initials: "RK",
     image: manav,
   },
   {
-    name: "Ps. Daniel Abraham",
-    role: "Kingdom City",
+    name: "Daniel Abraham",
+    role: "Kingdomcity",
     bio: "Champions the SOLID vision and orchestrates city-wide gatherings.",
     initials: "PT",
     image: daniel,
   },
   {
     name: "Ashwini George",
-    role: "Director, Live Jam",
+    role: " Live Jam",
     bio: "Mentors emerging leaders through the year-long apprenticeship program.",
     initials: "AM",
     image: ashwini,
   },
   {
     name: "Jaideep Herbert",
-    role: "COO at Vidyanta ",
+    role: "Vidyanta ",
     bio: "Curates worship experiences and creative arts culture at SOLID.",
     initials: "NS",
     image: jaideep,
@@ -1516,9 +1553,10 @@ function Index() {
         <Hero />
 
         <About />
+        <WhySolid />
         <Vision />
         {/* <Movement /> */}
-        <WhySolid />
+
         <Journey />
         <Ignite2026 />
         <Guests />
@@ -1528,7 +1566,7 @@ function Index() {
         <Prayer />
 
         <Partners />
-        {/* <FAQ /> */}
+        <FAQ />
         <CTA />
         {/* <Contact /> */}
       </main>
