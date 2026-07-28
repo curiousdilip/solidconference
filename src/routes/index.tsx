@@ -1130,7 +1130,7 @@ function CTA() {
                   target="_blank"
                   className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-semibold hover:bg-white/10"
                 >
-                  Donate Us
+                  Donate
                 </a>
               </div>
             </Reveal>
@@ -1560,7 +1560,7 @@ function Index() {
         <Journey />
         <Ignite2026 />
         <Guests />
-        <Team />
+        {/* <Team /> */}
         <Features />
         {/* <Impact /> */}
         <Prayer />
