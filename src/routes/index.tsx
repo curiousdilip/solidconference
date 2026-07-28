@@ -509,7 +509,7 @@ const guests = [
 
 function Guests() {
   return (
-    <section id="guests" className="py-16">
+    <section id="guests" className="scroll-mt-16 py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -557,7 +557,7 @@ function Guests() {
 // ---------- About ----------
 function About() {
   return (
-    <section id="about" className="relative py-16">
+    <section id="about" className="relative scroll-mt-16 py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -594,7 +594,7 @@ function About() {
 // ---------- Vision ----------
 function Vision() {
   return (
-    <section id="vision" className="relative overflow-hidden py-32">
+    <section id="vision" className="scroll-mt-16 relative overflow-hidden py-32">
       <img
         src={solid3}
         alt=""
@@ -783,7 +783,7 @@ const journey = [
 
 function Journey() {
   return (
-    <section id="journey" className="relative py-16">
+    <section id="journey" className="scroll-mt-16 relative py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -864,7 +864,7 @@ function Journey() {
 function Ignite2026() {
   const roles = ["Disciple Makers", "Servant Leaders", "City Influencers", "Kingdom Builders"];
   return (
-    <section id="ignite" className="relative overflow-hidden py-16">
+    <section id="ignite" className="relative scroll-mt-16 overflow-hidden py-16">
       <img
         src={stageLights}
         alt=""
@@ -949,7 +949,7 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-16">
+    <section className="py-16 scroll-mt-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -985,7 +985,7 @@ function Impact() {
     { n: 1, s: "", l: "Movement" },
   ];
   return (
-    <section id="impact" className="py-32">
+    <section id="impact" className="py-32 ">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1099,7 +1099,7 @@ const faqs = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-16" id="faqs">
+    <section className="py-16 scroll-mt-16" id="faqs">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1146,7 +1146,7 @@ function FAQ() {
 // ---------- CTA ----------
 function CTA() {
   return (
-    <section id="register" className="relative overflow-hidden py-16">
+    <section id="register" className="relative scroll-mt-16 overflow-hidden py-16">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-gradient-ignite opacity-20 blur-3xl" />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] glass p-12 text-center sm:p-16">
@@ -1454,7 +1454,7 @@ const team = [
 
 function Team() {
   return (
-    <section id="team" className="py-16">
+    <section id="team" className="scroll-mt-16 py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1539,7 +1539,7 @@ const partners = [
 
 function Partners() {
   return (
-    <section id="partners" className="relative overflow-hidden py-16">
+    <section id="partners" className="relative scroll-mt-16 overflow-hidden py-16">
       {/* <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-3xl" /> */}
       <img
         src={brands}
