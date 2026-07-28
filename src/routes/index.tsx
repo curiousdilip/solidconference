@@ -213,8 +213,6 @@ function Countdown1({ targetDate }: { targetDate: Date }) {
   );
 }
 
-
-
 export function Countdown({ targetDate }: { targetDate: Date }) {
   const [now, setNow] = useState<Date | null>(null);
 
@@ -282,7 +280,6 @@ export function Countdown({ targetDate }: { targetDate: Date }) {
   );
 }
 
-
 // ---------- Nav ----------
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -299,7 +296,6 @@ function Nav() {
     ["Journey", "#journey"],
     ["2026", "#ignite"],
     ["Guests", "#guests"],
-    ["Team", "#team"],
     ["Partners", "#partners"],
     ["FAQs", "#faqs"],
     ["Donate", "#register"],
@@ -1522,7 +1518,7 @@ const partners = [
     name: "India Campus Crusade for Christ",
     image: icc,
   },
-  
+
   {
     name: "Youth for Christ",
     image: yfc,
