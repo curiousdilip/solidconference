@@ -37,6 +37,7 @@ import {
   Waypoints,
   Pointer,
 } from "lucide-react";
+// import { useState, useEffect } from "react";
 import favicon from "@/assets/solid-fav.png";
 import heroWorship from "@/assets/hero-worship.jpg";
 import solid1 from "@/assets/solid-1.jpg";
@@ -171,7 +172,7 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   );
 }
 
-function Countdown({ targetDate }: { targetDate: Date }) {
+function Countdown1({ targetDate }: { targetDate: Date }) {
   const [now, setNow] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 1000);
@@ -211,6 +212,76 @@ function Countdown({ targetDate }: { targetDate: Date }) {
     </div>
   );
 }
+
+
+
+export function Countdown({ targetDate }: { targetDate: Date }) {
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!now) {
+    const placeholderUnits = ["Days", "Hours", "Minutes", "Seconds"];
+    return (
+      <div className="grid grid-cols-4 gap-3 sm:gap-5">
+        {placeholderUnits.map((label) => (
+          <div
+            key={label}
+            className="glass relative overflow-hidden rounded-2xl p-3 text-center sm:rounded-3xl sm:p-5"
+          >
+            <div className="relative">
+              <div className="font-display text-3xl font-bold tabular-nums text-primary sm:text-5xl md:text-6xl">
+                00
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-wider text-brand-navy sm:text-xs">
+                {label}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const diff = Math.max(0, targetDate.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  const units = [
+    { label: "Days", value: days },
+    { label: "Hours", value: hours },
+    { label: "Minutes", value: minutes },
+    { label: "Seconds", value: seconds },
+  ];
+
+  return (
+    <div className="grid grid-cols-4 gap-3 sm:gap-5">
+      {units.map((u) => (
+        <div
+          key={u.label}
+          className="glass relative overflow-hidden rounded-2xl p-3 text-center sm:rounded-3xl sm:p-5"
+        >
+          <div className="relative">
+            <div className="font-display text-3xl font-bold tabular-nums text-primary sm:text-5xl md:text-6xl">
+              {u.value.toString().padStart(2, "0")}
+            </div>
+            <div className="mt-1 text-[10px] uppercase tracking-wider text-brand-navy sm:text-xs">
+              {u.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 // ---------- Nav ----------
 function Nav() {
@@ -1447,19 +1518,11 @@ function Team() {
 
 // ---------- Partners / Collaborators ----------
 const partners = [
-  // "India Campus Crusade for Christ",
-  // "Union of Evangelical Students of India",
-  // "Youth for Christ",
-  // "Live Jam",
-  // "Youth Light",
   {
     name: "India Campus Crusade for Christ",
     image: icc,
   },
-  {
-    name: "Union of Evangelical Students of India",
-    image: uesi,
-  },
+  
   {
     name: "Youth for Christ",
     image: yfc,
@@ -1505,7 +1568,7 @@ function Partners() {
             Kingdom partners across Delhi NCR.
           </p>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {partners.map((p, i) => (
             <Reveal key={p.name} delay={i * 40}>
               <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
