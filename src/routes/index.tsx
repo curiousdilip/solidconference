@@ -37,6 +37,7 @@ import {
   Waypoints,
   Pointer,
 } from "lucide-react";
+// import { useState, useEffect } from "react";
 import favicon from "@/assets/solid-fav.png";
 import heroWorship from "@/assets/hero-worship.jpg";
 import solid1 from "@/assets/solid-1.jpg";
@@ -171,7 +172,7 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   );
 }
 
-function Countdown({ targetDate }: { targetDate: Date }) {
+function Countdown1({ targetDate }: { targetDate: Date }) {
   const [now, setNow] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 1000);
@@ -211,6 +212,76 @@ function Countdown({ targetDate }: { targetDate: Date }) {
     </div>
   );
 }
+
+
+
+export function Countdown({ targetDate }: { targetDate: Date }) {
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!now) {
+    const placeholderUnits = ["Days", "Hours", "Minutes", "Seconds"];
+    return (
+      <div className="grid grid-cols-4 gap-3 sm:gap-5">
+        {placeholderUnits.map((label) => (
+          <div
+            key={label}
+            className="glass relative overflow-hidden rounded-2xl p-3 text-center sm:rounded-3xl sm:p-5"
+          >
+            <div className="relative">
+              <div className="font-display text-3xl font-bold tabular-nums text-primary sm:text-5xl md:text-6xl">
+                00
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-wider text-brand-navy sm:text-xs">
+                {label}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const diff = Math.max(0, targetDate.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  const units = [
+    { label: "Days", value: days },
+    { label: "Hours", value: hours },
+    { label: "Minutes", value: minutes },
+    { label: "Seconds", value: seconds },
+  ];
+
+  return (
+    <div className="grid grid-cols-4 gap-3 sm:gap-5">
+      {units.map((u) => (
+        <div
+          key={u.label}
+          className="glass relative overflow-hidden rounded-2xl p-3 text-center sm:rounded-3xl sm:p-5"
+        >
+          <div className="relative">
+            <div className="font-display text-3xl font-bold tabular-nums text-primary sm:text-5xl md:text-6xl">
+              {u.value.toString().padStart(2, "0")}
+            </div>
+            <div className="mt-1 text-[10px] uppercase tracking-wider text-brand-navy sm:text-xs">
+              {u.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 // ---------- Nav ----------
 function Nav() {
@@ -438,7 +509,7 @@ const guests = [
 
 function Guests() {
   return (
-    <section id="guests" className="py-16">
+    <section id="guests" className="scroll-mt-16 py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -486,7 +557,7 @@ function Guests() {
 // ---------- About ----------
 function About() {
   return (
-    <section id="about" className="relative py-16">
+    <section id="about" className="relative scroll-mt-16 py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -523,7 +594,7 @@ function About() {
 // ---------- Vision ----------
 function Vision() {
   return (
-    <section id="vision" className="relative overflow-hidden py-32">
+    <section id="vision" className="scroll-mt-16 relative overflow-hidden py-32">
       <img
         src={solid3}
         alt=""
@@ -712,7 +783,7 @@ const journey = [
 
 function Journey() {
   return (
-    <section id="journey" className="relative py-16">
+    <section id="journey" className="scroll-mt-16 relative py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -793,7 +864,7 @@ function Journey() {
 function Ignite2026() {
   const roles = ["Disciple Makers", "Servant Leaders", "City Influencers", "Kingdom Builders"];
   return (
-    <section id="ignite" className="relative overflow-hidden py-16">
+    <section id="ignite" className="relative scroll-mt-16 overflow-hidden py-16">
       <img
         src={stageLights}
         alt=""
@@ -878,7 +949,7 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-16">
+    <section className="py-16 scroll-mt-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -914,7 +985,7 @@ function Impact() {
     { n: 1, s: "", l: "Movement" },
   ];
   return (
-    <section id="impact" className="py-32">
+    <section id="impact" className="py-32 ">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1028,7 +1099,7 @@ const faqs = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-16" id="faqs">
+    <section className="py-16 scroll-mt-16" id="faqs">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1075,7 +1146,7 @@ function FAQ() {
 // ---------- CTA ----------
 function CTA() {
   return (
-    <section id="register" className="relative overflow-hidden py-16">
+    <section id="register" className="relative scroll-mt-16 overflow-hidden py-16">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-gradient-ignite opacity-20 blur-3xl" />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] glass p-12 text-center sm:p-16">
@@ -1383,7 +1454,7 @@ const team = [
 
 function Team() {
   return (
-    <section id="team" className="py-16">
+    <section id="team" className="scroll-mt-16 py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -1447,19 +1518,11 @@ function Team() {
 
 // ---------- Partners / Collaborators ----------
 const partners = [
-  // "India Campus Crusade for Christ",
-  // "Union of Evangelical Students of India",
-  // "Youth for Christ",
-  // "Live Jam",
-  // "Youth Light",
   {
     name: "India Campus Crusade for Christ",
     image: icc,
   },
-  {
-    name: "Union of Evangelical Students of India",
-    image: uesi,
-  },
+  
   {
     name: "Youth for Christ",
     image: yfc,
@@ -1476,7 +1539,7 @@ const partners = [
 
 function Partners() {
   return (
-    <section id="partners" className="relative overflow-hidden py-16">
+    <section id="partners" className="relative scroll-mt-16 overflow-hidden py-16">
       {/* <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-3xl" /> */}
       <img
         src={brands}
@@ -1505,7 +1568,7 @@ function Partners() {
             Kingdom partners across Delhi NCR.
           </p>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {partners.map((p, i) => (
             <Reveal key={p.name} delay={i * 40}>
               <div className="group flex h-24 items-center justify-start overflow-hidden rounded-2xl glass px-4 text-center transition-all duration-500 hover:-translate-y-1 hover:glow">
