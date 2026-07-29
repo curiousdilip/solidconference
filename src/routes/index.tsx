@@ -1064,7 +1064,7 @@ const faqs = [
   },
   {
     q: " Is there a registration fee?",
-    a: "Yes. The registration fee is ₹200 per participant.",
+    a: "Yes. The registration fee is ₹250 per participant.",
   },
   {
     q: "Will lunch be provided?",
